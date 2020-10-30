@@ -36,18 +36,18 @@ def reseting(resetToggle):
     #print(resetToggle)
     if resetToggle == True:
         
-        if k == 0:
+        """if k == 0:
             print("k is 0", k)
             params = cv2.SimpleBlobDetector_Params()
             detector = cv2.SimpleBlobDetector_create(params)
             k = k + 1
-        else:
-            #print(k)
-            print(params.minArea, params.maxArea)
-            keypoints = detector.detect(img)
-            print("the number of blobs:", len(keypoints))
-            for k in keypoints:
-                cv2.circle(img, (int(k.pt[0]), int(k.pt[1])), int(k.size/2), (0, 0, 255), -1)
+        else:"""
+        #print(k)
+        print(params.minArea, params.maxArea)
+        keypoints = detector.detect(img)
+        print("the number of blobs:", len(keypoints))
+        for k in keypoints:
+            cv2.circle(img, (int(k.pt[0]), int(k.pt[1])), int(k.size/2), (0, 0, 255), -1)
     else:
         img = cv2.imread('circles/holes_3.jpeg')
         keypoints = []
