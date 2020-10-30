@@ -128,16 +128,6 @@ def distMin(value11):
     #print(params.maxArea)
     return params.minDistBetweenBlobs, params, detector
 
-def distMax(value12):
-    global params, detector
-
-    maximumDist = cv2.getTrackbarPos("maximum distance", "image2")
-    #print(minimumArea)
-    params.maxDistBetweenBlobs = maximumDist
-    detector = cv2.SimpleBlobDetector_create(params)
-    #print(params.maxArea)
-    return params.maxDistBetweenBlobs, params, detector
-
 
 def reseting(resetToggle):
     global img, params, detector, k
@@ -199,7 +189,6 @@ cv2.createTrackbar('maximum convexity','image2',0,100,convMax)
 cv2.createTrackbar('minimum inertia','image2',0,100,inertMin)
 cv2.createTrackbar('maximum inertia','image2',0,100,inertMax)
 cv2.createTrackbar('minimum distance between Blobs','image2',0,100,distMin)
-cv2.createTrackbar('maximum distance between Blobs','image2',0,1000,distMax)
 
 # create switch for ON/OFF functionality
 switch = '0 : OFF \n1 : ON'
@@ -212,7 +201,7 @@ while(1):
     if key == 27:
         break
 
-    im = cv2.resize(img, None,fx=0.2, fy=0.2, interpolation = cv2.INTER_CUBIC)
+    im = cv2.resize(img, None,fx=0.5, fy=0.5, interpolation = cv2.INTER_CUBIC)
     cv2.imshow("image", im)
 
 
