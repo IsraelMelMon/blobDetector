@@ -8,7 +8,7 @@ k = 0
 # Initiates param variables in default value
 params = cv2.SimpleBlobDetector_Params()
 
-def areaMax(valueArea):
+def areaMax(value):
     global params, detector
 
     minimumArea = cv2.getTrackbarPos("minimum area", "image")
@@ -19,7 +19,7 @@ def areaMax(valueArea):
     detector = cv2.SimpleBlobDetector_create(params)
     return params.minArea, params, detector
 
-def areaMin(valueArea2):
+def areaMin(value2):
     global params, detector
 
     maximumArea = cv2.getTrackbarPos("maximum area", "image")
@@ -30,10 +30,10 @@ def areaMin(valueArea2):
     #print(params.maxArea)
     return params.maxArea, params, detector
 
-def threshMin(valueArea2):
+def threshMin(value3):
     global params, detector
 
-    maximumArea = cv2.getTrackbarPos("maximum area", "image")
+    maximumArea = cv2.getTrackbarPos("minimum threshold", "image")
     #print(minimumArea)
     params.filterByArea = True
     params.maxArea = maximumArea
@@ -41,10 +41,10 @@ def threshMin(valueArea2):
     #print(params.maxArea)
     return params.maxArea, params, detector
 
-def threshMax(valueArea2):
+def threshMax(value4):
     global params, detector
 
-    maximumArea = cv2.getTrackbarPos("maximum area", "image")
+    maximumArea = cv2.getTrackbarPos("maximum threshold", "image")
     #print(minimumArea)
     params.filterByArea = True
     params.maxArea = maximumArea
@@ -52,10 +52,10 @@ def threshMax(valueArea2):
     #print(params.maxArea)
     return params.maxArea, params, detector
 
-def circMin(valueArea2):
+def circMin(value5):
     global params, detector
 
-    maximumArea = cv2.getTrackbarPos("maximum area", "image")
+    maximumArea = cv2.getTrackbarPos("minimum circularity", "image")
     #print(minimumArea)
     params.filterByArea = True
     params.maxArea = maximumArea
@@ -63,10 +63,10 @@ def circMin(valueArea2):
     #print(params.maxArea)
     return params.maxArea, params, detector
 
-def circMax(valueArea2):
+def circMax(value6):
     global params, detector
 
-    maximumArea = cv2.getTrackbarPos("maximum area", "image")
+    maximumArea = cv2.getTrackbarPos("maximum circularity", "image")
     #print(minimumArea)
     params.filterByArea = True
     params.maxArea = maximumArea
@@ -74,10 +74,10 @@ def circMax(valueArea2):
     #print(params.maxArea)
     return params.maxArea, params, detector
 
-def convMin(valueArea2):
+def convMin(value7):
     global params, detector
 
-    maximumArea = cv2.getTrackbarPos("maximum area", "image")
+    maximumArea = cv2.getTrackbarPos("minimum area", "image")
     #print(minimumArea)
     params.filterByArea = True
     params.maxArea = maximumArea
@@ -85,10 +85,10 @@ def convMin(valueArea2):
     #print(params.maxArea)
     return params.maxArea, params, detector
 
-def convMax(valueArea2):
+def convMax(value8):
     global params, detector
 
-    maximumArea = cv2.getTrackbarPos("maximum area", "image")
+    maximumArea = cv2.getTrackbarPos("maximum convexity", "image")
     #print(minimumArea)
     params.filterByArea = True
     params.maxArea = maximumArea
@@ -96,10 +96,10 @@ def convMax(valueArea2):
     #print(params.maxArea)
     return params.maxArea, params, detector
 
-def inertMin(valueArea2):
+def inertMin(value9):
     global params, detector
 
-    maximumArea = cv2.getTrackbarPos("maximum area", "image")
+    maximumArea = cv2.getTrackbarPos("minimum inertia", "image")
     #print(minimumArea)
     params.filterByArea = True
     params.maxArea = maximumArea
@@ -107,10 +107,10 @@ def inertMin(valueArea2):
     #print(params.maxArea)
     return params.maxArea, params, detector
 
-def inertMax(valueArea2):
+def inertMax(value10):
     global params, detector
 
-    maximumArea = cv2.getTrackbarPos("maximum area", "image")
+    maximumArea = cv2.getTrackbarPos("maximum inertia", "image")
     #print(minimumArea)
     params.filterByArea = True
     params.maxArea = maximumArea
@@ -118,7 +118,7 @@ def inertMax(valueArea2):
     #print(params.maxArea)
     return params.maxArea, params, detector
 
-def distMin(valueArea2):
+def distMin(value11):
     global params, detector
 
     maximumArea = cv2.getTrackbarPos("minimum distance", "image")
@@ -129,7 +129,7 @@ def distMin(valueArea2):
     #print(params.maxArea)
     return params.maxArea, params, detector
 
-def distMax(valueArea2):
+def distMax(value12):
     global params, detector
 
     maximumArea = cv2.getTrackbarPos("maximum distance", "image")
