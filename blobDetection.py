@@ -154,6 +154,19 @@ def reseting(resetToggle):
         #print(params.minArea, params.maxArea)
         keypoints = detector.detect(img)
         print("the number of blobs:", len(keypoints))
+        
+        font                   = cv2.FONT_HERSHEY_SIMPLEX
+        bottomLeftCornerOfText = (10,500)
+        fontScale              = 1
+        fontColor              = (255,255,255)
+        lineType               = 2
+
+        cv2.putText(img,'Hello World!', 
+            bottomLeftCornerOfText, 
+            font, 
+            fontScale,
+            fontColor,
+            lineType)
         for k in keypoints:
             cv2.circle(img, (int(k.pt[0]), int(k.pt[1])), int(k.size/2), (0, 0, 255), -1)
     else:
@@ -177,8 +190,8 @@ cv2.namedWindow('image')
 
 cv2.createTrackbar('minimum area','image',0,400,areaMin)
 cv2.createTrackbar('maximum area','image',0,1000,areaMax)
-cv2.createTrackbar('minimum threshold','image',0,100,threshMin)
-cv2.createTrackbar('maximum threshold','image',0,100,threshMax)
+cv2.createTrackbar('minimum threshold','image',0,1000,threshMin)
+cv2.createTrackbar('maximum threshold','image',0,1000,threshMax)
 cv2.createTrackbar('minimum circularity','image',0,100,circMin)
 cv2.createTrackbar('maximum circularity','image',0,100,circMax)
 cv2.createTrackbar('minimum convexity','image',0,100,convMin)
@@ -199,7 +212,7 @@ while(1):
     if key == 27:
         break
 
-    im = cv2.resize(img, None,fx=0.3, fy=0.3, interpolation = cv2.INTER_CUBIC)
+    im = cv2.resize(img, None,fx=0.2, fy=0.2, interpolation = cv2.INTER_CUBIC)
     cv2.imshow("image", im)
 
 
