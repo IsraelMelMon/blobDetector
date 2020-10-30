@@ -8,7 +8,7 @@ k = 0
 # Initiates param variables in default value
 params = cv2.SimpleBlobDetector_Params()
 
-def nothing(valueArea):
+def areaMax(valueArea):
     global params, detector
 
     minimumArea = cv2.getTrackbarPos("minimum area", "image")
@@ -19,7 +19,7 @@ def nothing(valueArea):
     detector = cv2.SimpleBlobDetector_create(params)
     return params.minArea, params, detector
 
-def nothing2(valueArea2):
+def areaMin(valueArea2):
     global params, detector
 
     maximumArea = cv2.getTrackbarPos("maximum area", "image")
