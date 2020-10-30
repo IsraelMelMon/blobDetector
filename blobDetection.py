@@ -30,6 +30,116 @@ def areaMin(valueArea2):
     #print(params.maxArea)
     return params.maxArea, params, detector
 
+def threshMin(valueArea2):
+    global params, detector
+
+    maximumArea = cv2.getTrackbarPos("maximum area", "image")
+    #print(minimumArea)
+    params.filterByArea = True
+    params.maxArea = maximumArea
+    detector = cv2.SimpleBlobDetector_create(params)
+    #print(params.maxArea)
+    return params.maxArea, params, detector
+
+def threshMax(valueArea2):
+    global params, detector
+
+    maximumArea = cv2.getTrackbarPos("maximum area", "image")
+    #print(minimumArea)
+    params.filterByArea = True
+    params.maxArea = maximumArea
+    detector = cv2.SimpleBlobDetector_create(params)
+    #print(params.maxArea)
+    return params.maxArea, params, detector
+
+def circMin(valueArea2):
+    global params, detector
+
+    maximumArea = cv2.getTrackbarPos("maximum area", "image")
+    #print(minimumArea)
+    params.filterByArea = True
+    params.maxArea = maximumArea
+    detector = cv2.SimpleBlobDetector_create(params)
+    #print(params.maxArea)
+    return params.maxArea, params, detector
+
+def circMax(valueArea2):
+    global params, detector
+
+    maximumArea = cv2.getTrackbarPos("maximum area", "image")
+    #print(minimumArea)
+    params.filterByArea = True
+    params.maxArea = maximumArea
+    detector = cv2.SimpleBlobDetector_create(params)
+    #print(params.maxArea)
+    return params.maxArea, params, detector
+
+def convMin(valueArea2):
+    global params, detector
+
+    maximumArea = cv2.getTrackbarPos("maximum area", "image")
+    #print(minimumArea)
+    params.filterByArea = True
+    params.maxArea = maximumArea
+    detector = cv2.SimpleBlobDetector_create(params)
+    #print(params.maxArea)
+    return params.maxArea, params, detector
+
+def convMax(valueArea2):
+    global params, detector
+
+    maximumArea = cv2.getTrackbarPos("maximum area", "image")
+    #print(minimumArea)
+    params.filterByArea = True
+    params.maxArea = maximumArea
+    detector = cv2.SimpleBlobDetector_create(params)
+    #print(params.maxArea)
+    return params.maxArea, params, detector
+
+def inertMin(valueArea2):
+    global params, detector
+
+    maximumArea = cv2.getTrackbarPos("maximum area", "image")
+    #print(minimumArea)
+    params.filterByArea = True
+    params.maxArea = maximumArea
+    detector = cv2.SimpleBlobDetector_create(params)
+    #print(params.maxArea)
+    return params.maxArea, params, detector
+
+def inertMax(valueArea2):
+    global params, detector
+
+    maximumArea = cv2.getTrackbarPos("maximum area", "image")
+    #print(minimumArea)
+    params.filterByArea = True
+    params.maxArea = maximumArea
+    detector = cv2.SimpleBlobDetector_create(params)
+    #print(params.maxArea)
+    return params.maxArea, params, detector
+
+def distMin(valueArea2):
+    global params, detector
+
+    maximumArea = cv2.getTrackbarPos("minimum distance", "image")
+    #print(minimumArea)
+    params.filterByArea = True
+    params.maxArea = maximumArea
+    detector = cv2.SimpleBlobDetector_create(params)
+    #print(params.maxArea)
+    return params.maxArea, params, detector
+
+def distMax(valueArea2):
+    global params, detector
+
+    maximumArea = cv2.getTrackbarPos("maximum distance", "image")
+    #print(minimumArea)
+    params.filterByArea = True
+    params.maxArea = maximumArea
+    detector = cv2.SimpleBlobDetector_create(params)
+    #print(params.maxArea)
+    return params.maxArea, params, detector
+
 
 def reseting(resetToggle):
     global img, params, detector, k
@@ -66,19 +176,19 @@ img = cv2.imread('circles/holes_3.jpeg')
 cv2.namedWindow('image')
 # the "nothing" functions change the params, 
 # and the reset toggle is a switch to display the blobs detectes
-cv2.createTrackbar('minimum area','image',0,400,nothing)
-cv2.createTrackbar('maximum area','image',100,800,nothing2)
+cv2.createTrackbar('minimum area','image',0,400,areaMin)
+cv2.createTrackbar('maximum area','image',100,800,areaMax)
 """
-cv2.createTrackbar('minimum threshold','image',0,400,nothing)
-cv2.createTrackbar('maximum threshold','image',100,400,nothing2)
-cv2.createTrackbar('minimum circularity','image',0,400,nothing)
-cv2.createTrackbar('maximum circularity','image',100,400,nothing2)
-cv2.createTrackbar('minimum convexity','image',0,400,nothing)
-cv2.createTrackbar('maximum convexity','image',100,400,nothing2)
-cv2.createTrackbar('minimum inertia','image',0,400,nothing)
-cv2.createTrackbar('maximum inertia','image',100,400,nothing2)
-cv2.createTrackbar('minimum distance between Blobs','image',0,400,nothing)
-cv2.createTrackbar('maximum distance between Blobs','image',100,400,nothing2)"""
+cv2.createTrackbar('minimum threshold','image',0,400,threshMin)
+cv2.createTrackbar('maximum threshold','image',100,400,threshMax)
+cv2.createTrackbar('minimum circularity','image',0,400,circMin)
+cv2.createTrackbar('maximum circularity','image',100,400,circMax)
+cv2.createTrackbar('minimum convexity','image',0,400,convMin)
+cv2.createTrackbar('maximum convexity','image',100,400,convMax)
+cv2.createTrackbar('minimum inertia','image',0,400,inertMin)
+cv2.createTrackbar('maximum inertia','image',100,400,inertMax)
+cv2.createTrackbar('minimum distance between Blobs','image',0,400,distMin)
+cv2.createTrackbar('maximum distance between Blobs','image',100,400,distMax)"""
 # create switch for ON/OFF functionality
 switch = '0 : OFF \n1 : ON'
 
