@@ -161,7 +161,7 @@ def reseting(resetToggle):
         fontColor              = (255,255,255)
         lineType               = 2
 
-        cv2.putText(img,'Hello World!', 
+        cv2.putText(img,"the number of blobs:"+ str(len(keypoints)), 
             bottomLeftCornerOfText, 
             font, 
             fontScale,
