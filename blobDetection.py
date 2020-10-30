@@ -11,7 +11,7 @@ params = cv2.SimpleBlobDetector_Params()
 def areaMax(value):
     global params, detector
 
-    maximumArea = cv2.getTrackbarPos("maximum area", "image")
+    maximumArea = cv2.getTrackbarPos("maximum area", "image2")
     #print(minimumArea)
     params.filterByArea = True
     params.maxArea = maximumArea
@@ -22,7 +22,7 @@ def areaMax(value):
 def areaMin(value2):
     global params, detector
 
-    minimumArea = cv2.getTrackbarPos("minimum area", "image")
+    minimumArea = cv2.getTrackbarPos("minimum area", "image2")
     #print(minimumArea)
     params.filterByArea = True
     params.minArea = minimumArea
@@ -33,7 +33,7 @@ def areaMin(value2):
 def threshMin(value3):
     global params, detector
 
-    minimumThreshold = cv2.getTrackbarPos("minimum threshold", "image")
+    minimumThreshold = cv2.getTrackbarPos("minimum threshold", "image2")
     #print(minimumArea)
     #params.filterByArea = True
     params.minThreshold = minimumThreshold
@@ -44,7 +44,7 @@ def threshMin(value3):
 def threshMax(value4):
     global params, detector
 
-    maximumThreshold = cv2.getTrackbarPos("maximum threshold", "image")
+    maximumThreshold = cv2.getTrackbarPos("maximum threshold", "image2")
     #print(minimumArea)
     #params.filterByArea = True
     params.maxThreshold = maximumThreshold
@@ -55,7 +55,7 @@ def threshMax(value4):
 def circMin(value5):
     global params, detector
 
-    minimumCircularity = cv2.getTrackbarPos("minimum circularity", "image")
+    minimumCircularity = cv2.getTrackbarPos("minimum circularity", "image2")
     #print(minimumArea)
     params.filterByCircularity = True
     params.minCircularity = minimumCircularity / 100
@@ -66,7 +66,7 @@ def circMin(value5):
 def circMax(value6):
     global params, detector
 
-    maximumCircularity = cv2.getTrackbarPos("maximum circularity", "image")
+    maximumCircularity = cv2.getTrackbarPos("maximum circularity", "image2")
     #print(minimumArea)
     params.filterByCircularity= True
     params.maxCircularity = maximumCircularity / 100
@@ -77,7 +77,7 @@ def circMax(value6):
 def convMin(value7):
     global params, detector
 
-    minimumConvexity = cv2.getTrackbarPos("minimum convexity", "image")
+    minimumConvexity = cv2.getTrackbarPos("minimum convexity", "image2")
     #print(minimumArea)
     params.filterByConvexity = True
     params.minimumConvexity = minimumConvexity / 100
@@ -88,7 +88,7 @@ def convMin(value7):
 def convMax(value8):
     global params, detector
 
-    maximumConvexity = cv2.getTrackbarPos("maximum convexity", "image")
+    maximumConvexity = cv2.getTrackbarPos("maximum convexity", "image2")
     #print(minimumArea)
     params.filterByConvexity = True
     params.maxConvexity = maximumConvexity / 100
@@ -99,7 +99,7 @@ def convMax(value8):
 def inertMin(value9):
     global params, detector
 
-    minimumInertia = cv2.getTrackbarPos("minimum inertia", "image")
+    minimumInertia = cv2.getTrackbarPos("minimum inertia", "image2")
     #print(minimumArea)
     params.filterByInertia = True
     params.minInertiaRatio = minimumInertia / 100
@@ -110,7 +110,7 @@ def inertMin(value9):
 def inertMax(value10):
     global params, detector
 
-    maximumInertia = cv2.getTrackbarPos("maximum inertia", "image") 
+    maximumInertia = cv2.getTrackbarPos("maximum inertia", "image2") 
     #print(minimumArea)
     params.filterByInertia = True
     params.maxInertiaRatio = maximumInertia / 100
@@ -121,7 +121,7 @@ def inertMax(value10):
 def distMin(value11):
     global params, detector
 
-    minimumDist = cv2.getTrackbarPos("minimum distance", "image")
+    minimumDist = cv2.getTrackbarPos("minimum distance", "image2")
     #print(minimumArea)
     params.minDistBetweenBlobs = minimumDist
     detector = cv2.SimpleBlobDetector_create(params)
@@ -131,7 +131,7 @@ def distMin(value11):
 def distMax(value12):
     global params, detector
 
-    maximumDist = cv2.getTrackbarPos("maximum distance", "image")
+    maximumDist = cv2.getTrackbarPos("maximum distance", "image2")
     #print(minimumArea)
     params.maxDistBetweenBlobs = maximumDist
     detector = cv2.SimpleBlobDetector_create(params)
@@ -161,7 +161,7 @@ def reseting(resetToggle):
         fontColor              = (255,255,255)
         lineType               = 2
 
-        cv2.putText(img,"the number of blobs:"+ str(len(keypoints)), 
+        cv2.putText(img,"# blobs:"+ str(len(keypoints)), 
             bottomLeftCornerOfText, 
             font, 
             fontScale,
@@ -184,27 +184,27 @@ img = cv2.imread('circles/holes_3.jpeg')
 #params.maxArea = 800 # 800 for 6 ; 800 for 102
 # Change thresholds
 
-cv2.namedWindow('image')
+cv2.namedWindow('image2')
 # the "nothing" functions change the params, 
 # and the reset toggle is a switch to display the blobs detectes
 
-cv2.createTrackbar('minimum area','image',0,400,areaMin)
-cv2.createTrackbar('maximum area','image',0,1000,areaMax)
-cv2.createTrackbar('minimum threshold','image',0,1000,threshMin)
-cv2.createTrackbar('maximum threshold','image',0,1000,threshMax)
-cv2.createTrackbar('minimum circularity','image',0,100,circMin)
-cv2.createTrackbar('maximum circularity','image',0,100,circMax)
-cv2.createTrackbar('minimum convexity','image',0,100,convMin)
-cv2.createTrackbar('maximum convexity','image',0,100,convMax)
-cv2.createTrackbar('minimum inertia','image',0,100,inertMin)
-cv2.createTrackbar('maximum inertia','image',0,100,inertMax)
-cv2.createTrackbar('minimum distance between Blobs','image',0,100,distMin)
-cv2.createTrackbar('maximum distance between Blobs','image',0,1000,distMax)
+cv2.createTrackbar('minimum area','image2',0,400,areaMin)
+cv2.createTrackbar('maximum area','image2',0,1000,areaMax)
+cv2.createTrackbar('minimum threshold','image2',0,1000,threshMin)
+cv2.createTrackbar('maximum threshold','image2',0,1000,threshMax)
+cv2.createTrackbar('minimum circularity','image2',0,100,circMin)
+cv2.createTrackbar('maximum circularity','image2',0,100,circMax)
+cv2.createTrackbar('minimum convexity','image2',0,100,convMin)
+cv2.createTrackbar('maximum convexity','image2',0,100,convMax)
+cv2.createTrackbar('minimum inertia','image2',0,100,inertMin)
+cv2.createTrackbar('maximum inertia','image2',0,100,inertMax)
+cv2.createTrackbar('minimum distance between Blobs','image2',0,100,distMin)
+cv2.createTrackbar('maximum distance between Blobs','image2',0,1000,distMax)
 
 # create switch for ON/OFF functionality
 switch = '0 : OFF \n1 : ON'
 
-cv2.createTrackbar(switch,'image',0,1,reseting)
+cv2.createTrackbar(switch,'image2',0,1,reseting)
 while(1):
     #cv2.imshow("Object Detection", img)
 
