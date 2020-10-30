@@ -80,10 +80,10 @@ def convMin(value7):
     minimumConvexity = cv2.getTrackbarPos("minimum convexity", "image2")
     #print(minimumArea)
     params.filterByConvexity = True
-    params.minimumConvexity = minimumConvexity / 100
+    params.minConvexity = minimumConvexity / 100
     detector = cv2.SimpleBlobDetector_create(params)
     #print(params.maxArea)
-    return params.minimumConvexity, params, detector
+    return params.minConvexity, params, detector
 
 def convMax(value8):
     global params, detector
@@ -160,13 +160,13 @@ def reseting(resetToggle):
         for k in keypoints:
             cv2.circle(img, (int(k.pt[0]), int(k.pt[1])), int(k.size/2), (0, 0, 255), -1)
     else:
-        img = cv2.imread('circles/holes_3.jpeg')
+        img = cv2.imread('circles/holes_14.jpeg')
         keypoints = []
         #params.minArea = 0
 
     return params.minArea, params.maxArea, params, detector # check
 # Read image
-img = cv2.imread('circles/holes_3.jpeg')
+img = cv2.imread('circles/holes_14.jpeg')
 
 # Setup SimpleBlobDetector parameters.
 #params.filterByArea = True
