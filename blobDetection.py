@@ -160,26 +160,20 @@ def reseting(resetToggle):
         for k in keypoints:
             cv2.circle(img, (int(k.pt[0]), int(k.pt[1])), int(k.size/2), (0, 0, 255), -1)
     else:
-        img = cv2.imread('circles/holes_14.jpeg')
+        img = cv2.imread('circles/initial.png')
         keypoints = []
         #params.minArea = 0
 
     return params.minArea, params.maxArea, params, detector # check
 # Read image
-img = cv2.imread('circles/holes_14.jpeg')
-
-# Setup SimpleBlobDetector parameters.
-#params.filterByArea = True
-#params.minArea = 10 #  100          10
-#params.maxArea = 800 # 800 for 6 ; 800 for 102
-# Change thresholds
+img = cv2.imread('circles/initial.png')
 
 cv2.namedWindow('image2')
 # the "nothing" functions change the params, 
 # and the reset toggle is a switch to display the blobs detectes
 
-cv2.createTrackbar('minimum area','image2',0,400,areaMin)
-cv2.createTrackbar('maximum area','image2',0,1000,areaMax)
+cv2.createTrackbar('minimum area','image2',0,1000,areaMin)
+cv2.createTrackbar('maximum area','image2',0,100000,areaMax)
 cv2.createTrackbar('minimum threshold','image2',0,1000,threshMin)
 cv2.createTrackbar('maximum threshold','image2',0,1000,threshMax)
 cv2.createTrackbar('minimum circularity','image2',0,100,circMin)
@@ -194,6 +188,7 @@ cv2.createTrackbar('minimum distance between Blobs','image2',0,100,distMin)
 switch = '0 : OFF \n1 : ON'
 
 cv2.createTrackbar(switch,'image2',0,1,reseting)
+
 while(1):
     #cv2.imshow("Object Detection", img)
 
